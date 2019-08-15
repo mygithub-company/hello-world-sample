@@ -1,0 +1,31 @@
+{
+  "configs": [
+    "global.xml",
+    "hello-world-sample.xml",
+    "test-hello-world-impl.xml"
+  ],
+  "secureProperties": [],
+  "redeploymentEnabled": true,
+  "name": "com.mycompany:hello-world-sample:1.0.0-SNAPSHOT",
+  "minMuleVersion": "4.1.4",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedPackages": [],
+      "exportedResources": [
+        "log4j2.xml",
+        "global.xml",
+        "config/local-properties.yaml",
+        "config/dev-properties.yaml",
+        "hello-world-sample.xml",
+        "test-hello-world-impl.xml",
+        "api/hello-world-sample.raml"
+      ]
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}

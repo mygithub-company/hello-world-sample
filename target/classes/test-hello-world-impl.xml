@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<sub-flow name="test-hello-world-get-greetings-sub-flow" doc:id="d4009012-5b96-4b9d-94e6-12d0106cb9b1" >
+		<logger level="INFO" doc:name="Logger" doc:id="8669829b-4827-4fe6-a189-6dbcf81b2675" message='#["Before Request:" : payload]'/>
+		<ee:transform doc:name="Transform Message" doc:id="6fd0c47b-1a4c-406c-9b72-19f62e2aa61c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+  message: "Hello World, now the time is : " ++ now()
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="43a34a54-7f05-4b3c-b36e-4b2a34603504" message='#["After Request:" : payload]'/>
+	</sub-flow>
+</mule>

@@ -1,0 +1,30 @@
+#%RAML 1.0
+baseUri: http://localhost:8081/api/v1
+title: Test Hello World API
+version: v1
+mediaType: application/json
+protocols: [HTTP]
+
+
+
+/greetings:
+  
+  get:
+    description: Get all the accounts associated with the given email.
+   
+    queryParameters:
+      email:
+        description: email
+        type: string
+        example: "abc@xyz.com"
+        required: false
+    responses:
+      200:
+        body:
+          application/json: 
+            example: { "greeting": "Hello World"}
+      204:
+        body:
+          application/json:
+            example:
+              []         
